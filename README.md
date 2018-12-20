@@ -29,6 +29,14 @@ webhooks:
     failurePolicy: [Fail or Ignore]
 ```
 
+**Note** You can encode your certificate (*.pem/.crt) to base64 with:
+
+```bash
+$ cat <cert> | base64 | tr -d '\n'
+```
+
+Now register the webhook:
+
 ```bash
 $ kubectl create -f deploy/register-hook.yaml
 validatingwebhookconfiguration.admissionregistration.k8s.io/pod-validate-webhook created
